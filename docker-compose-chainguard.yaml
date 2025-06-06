@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+  frontend:
+    image: chaiku-frontend-cg:latest
+    container_name: cg-frontend
+    build: 
+      context: ./frontend
+      dockerfile: ./Dockerfile-chainguard
+    depends_on:
+      - backend
+
+  backend:
+    image: chaiku-backend-cg:latest
+    container_name: cg-backend
+    build: 
+      context: ./backend
+      dockerfile: ./Dockerfile-chainguard
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_DB: chaiku
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+
+  db:
+    container_name: cg-postgres
+    image: cgr.dev/chainguard/postgres:latest
+    # image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: chaiku
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      # - ./db/init.sql:/var/lib/postgres/docker-entrypoint-initdb.d/init.sql
+        - ./db/init.sql:/var/lib/postgres/initdb/init.sql
+
+    ports:
+      - "5432:5432"
+
+  nginx:
+    image: chaiku-nginx-cg:latest
+    container_name: cg-nginx
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile-chainguard
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
