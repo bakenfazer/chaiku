@@ -5,9 +5,13 @@ set -euo pipefail
 # === CONFIGURATION ===
 TARGET_IMAGES=("chaiku-nginx-cg" "chaiku-frontend-cg" "chaiku-backend-cg" "cgr.dev/chainguard/postgres")
 
+# Create output directory if it doesn't exist
+OUTPUT_DIR="./scanners/scan-results"
+mkdir -p "$OUTPUT_DIR"
+
 # Output files
-CHAINGUARD_IMAGES="./scanners/scan-results/grype-chainguard-images.csv"
-OTHER_IMAGES="./scanners/scan-results/grype-legacy-images.csv"
+CHAINGUARD_IMAGES="${OUTPUT_DIR}/grype-chainguard-images.csv"
+OTHER_IMAGES="${OUTPUT_DIR}/grype-legacy-images.csv"
 HEADER="Image,Package,Version,Vulnerability,Severity,Type,FixedInVersion"
 
 # Track processed images
