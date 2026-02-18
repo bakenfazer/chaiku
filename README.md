@@ -108,4 +108,4 @@ This highlights the value of using Chainguard's minimal, secure-by-default image
 
 ## Extra Credit
 
-~Compare image sizes, SBOMs, and provenance~
+Compare image sizes, SBOMs, and provenance
