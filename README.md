@@ -98,7 +98,7 @@ docker compose down -v
 ```
 
 ---
-## Compare Results
+## 5. Compare Results
 
 After scanning both versions, open the CSV files to review the outputs to compare:
 
@@ -108,7 +108,7 @@ After scanning both versions, open the CSV files to review the outputs to compar
 
 This highlights the value of using Chainguard's minimal, secure-by-default images like those from Chainguard.
 
-## Extra Credit
+## 6. Extra Credit
 
 ### Image Specifications
 
