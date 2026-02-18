@@ -141,9 +141,6 @@ dist
 # Grype Scan Results
 scanners/scan-results/*
 
-# Commands File
-commands
-
 # Local Python env
 bin
 lib

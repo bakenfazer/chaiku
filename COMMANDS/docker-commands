@@ -1,0 +1,8 @@
+docker compose up -d --build
+./scanners/grype-scan.sh
+docker compose down -v
+docker compose -f docker-compose-chainguard.yaml up -d --build
+./scanners/grype-scan.sh
+docker compose down -v
+curl localhost:5000
+view-on-browser: localhost:80
