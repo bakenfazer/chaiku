@@ -1,4 +1,4 @@
-FROM node:latest
+FROM public.ecr.aws/docker/library/node:latest
 
 WORKDIR /app
 COPY . .

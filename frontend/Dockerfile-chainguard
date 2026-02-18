@@ -1,10 +1,10 @@
-FROM cgr.dev/chainguard/node:latest-dev AS builder
+FROM public.ecr.aws/chainguard/node:latest-dev AS builder
 
 WORKDIR /app
 COPY . .
 RUN npm install
 
-FROM cgr.dev/chainguard/node:latest
+FROM public.ecr.aws/chainguard/node:latest
 
 WORKDIR /app
 COPY --from=builder ./app .

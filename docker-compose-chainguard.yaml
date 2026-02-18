@@ -27,7 +27,7 @@ services:
 
   db:
     container_name: cg-postgres
-    image: cgr.dev/chainguard/postgres:latest
+    image: public.ecr.aws/chainguard/postgres:latest
     # image: postgres:15
     restart: always
     environment:
