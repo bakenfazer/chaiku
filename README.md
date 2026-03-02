@@ -141,7 +141,7 @@ Chainguard images are signed with [Sigstore](https://docs.sigstore.dev/) and inc
 cosign verify \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
-  public.ecr.aws/chainguard/node | jq
+  cgr.dev/chainguard/node | jq
 ```
 
 #### Attestation Types
@@ -160,7 +160,7 @@ Each image ships with three attestation types:
 cosign download attestation \
   --platform=linux/amd64 \
   --predicate-type=https://spdx.dev/Document \
-  public.ecr.aws/chainguard/node | jq -r .payload | base64 -d | jq .predicate
+  cgr.dev/chainguard/node | jq -r .payload | base64 -d | jq .predicate
 ```
 
 Swap `--predicate-type` to pull a different attestation. Use https://apko.dev/image-configuration for Image Configuration and https://slsa.dev/provenance/v1 for Provenance. 
@@ -172,7 +172,7 @@ cosign verify-attestation \
   --type https://spdx.dev/Document \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
   --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
-  public.ecr.aws/chainguard/node | jq
+  cgr.dev/chainguard/node | jq
 ```
 
 A successful result confirms:

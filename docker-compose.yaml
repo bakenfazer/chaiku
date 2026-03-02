@@ -18,7 +18,7 @@ services:
       POSTGRES_PASSWORD: password
 
   db:
-    image: public.ecr.aws/docker/library/postgres:latest
+    image: postgres:latest
     restart: always
     environment:
       POSTGRES_DB: chaiku
