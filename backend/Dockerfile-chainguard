@@ -1,4 +1,4 @@
-FROM public.ecr.aws/chainguard/python:latest-dev AS builder
+FROM cgr.dev/chainguard/python:latest-dev AS builder
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ COPY requirements.txt .
 RUN python -m venv /app/venv && \ 
     /app/venv/bin/pip install --no-cache-dir -r requirements.txt
 
-FROM public.ecr.aws/chainguard/python:latest
+FROM cgr.dev/chainguard/python:latest
 
 WORKDIR /app
 
