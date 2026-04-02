@@ -1,0 +1,12 @@
+keyring-provider = "subprocess"
+
+[[index]]
+name = "python-remediated"
+url = "https://libraries.cgr.dev/python-remediated/simple"
+authenticate = "always"
+
+[[index]]
+name = "python"
+url = "https://libraries.cgr.dev/python/simple"
+authenticate = "always"
+default = true
